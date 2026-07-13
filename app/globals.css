@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0e0c;
+  --surface: #10160f;
+  --line: #1e2a22;
+  --ink: #ece8de;
+  --muted: #8b9389;
+  --copper: #c97a44;
+  --phosphor: #5fd98a;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  /* faint lab-notebook grid, felt more than seen */
+  background-image:
+    linear-gradient(rgba(30, 42, 34, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 42, 34, 0.35) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: -1px -1px;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--copper);
+  color: var(--bg);
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+.entry-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
